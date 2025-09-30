@@ -5,44 +5,164 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Happy Birthday Borsha! 🎉</title>
     <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
+    <div class="music-control">
+        <button id="musicBtn" class="music-btn">🎵 Play Music</button>
+    </div>
+    
+    <audio id="birthdayMusic" loop>
+        <source src="https://www.soundjay.com/misc/sounds/bell-ringing-05.wav" type="audio/wav">
+        <!-- Fallback for browsers that don't support the audio element -->
+        Your browser does not support the audio element.
+    </audio>
+    
     <div class="container">
+        <!-- Surprise Button -->
+        <div class="surprise-section">
+            <button id="surpriseBtn" class="surprise-btn">🎁 Click for Surprise!</button>
+        </div>
+        
         <div class="birthday-card">
-            <h1 class="title">Happy Birthday</h1>
-            <h2 class="name">Borsha! 💕</h2>
-            <div class="date">September 30, 2025</div>
+            <!-- Title Section with Animation -->
+            <div class="title-section">
+                <h1 class="title">Happy Birthday</h1>
+                <h2 class="name">Borsha! 💖</h2>
+                <div class="date">September 30, 2025</div>
+                <div class="age-celebration">🎂 Another Beautiful Year! 🎂</div>
+            </div>
             
+            <!-- Interactive Photo Gallery -->
+            <div class="photo-gallery">
+                <div class="photo-title">📸 Beautiful Memories 📸</div>
+                <div class="photos">
+                    <div class="photo-placeholder photo1" data-message="আমাদের প্রথম দেখা 💕">
+                        <div class="photo-content">📷</div>
+                        <div class="photo-overlay">Click me!</div>
+                    </div>
+                    <div class="photo-placeholder photo2" data-message="সবচেয়ে সুন্দর মুহূর্ত ✨">
+                        <div class="photo-content">📷</div>
+                        <div class="photo-overlay">Click me!</div>
+                    </div>
+                    <div class="photo-placeholder photo3" data-message="আমাদের হাসির গল্প 😊">
+                        <div class="photo-content">📷</div>
+                        <div class="photo-overlay">Click me!</div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Birthday Message -->
             <div class="message">
+                <div class="message-title">💌 Special Message For You 💌</div>
                 <p>আজ তোমার জন্মদিন, এই বিশেষ দিনে তোমার জীবনে আসুক অসংখ্য খুশি ও আনন্দ। 🌟</p>
                 <p>তুমি আমার জীবনের সবচেয়ে সুন্দর অধ্যায়। তোমার হাসিতে আমার পৃথিবী আলোকিত হয়ে ওঠে। ✨</p>
                 <p>জন্মদিনের অনেক অনেক শুভেচ্ছা আমার প্রিয় মানুষটি! 🎂❤️</p>
+                <div class="typewriter-text" id="typewriterText"></div>
             </div>
             
+            <!-- Interactive Wishes -->
             <div class="wishes">
-                <div class="wish-item">🎈 সুখে ভরা থাকুক তোমার জীবন</div>
-                <div class="wish-item">🌺 স্বপ্নগুলো পূরণ হোক</div>
-                <div class="wish-item">💫 সফলতা ছুঁয়ে যাক তোমার হাত</div>
-                <div class="wish-item">🌈 রঙিন হোক তোমার প্রতিটি দিন</div>
+                <div class="wishes-title">🌟 আমার শুভেচ্ছা 🌟</div>
+                <div class="wish-item interactive-wish" data-wish="সুখে ভরা থাকুক তোমার জীবন">
+                    🎈 সুখে ভরা থাকুক তোমার জীবন
+                    <div class="wish-reaction">💕</div>
+                </div>
+                <div class="wish-item interactive-wish" data-wish="স্বপ্নগুলো পূরণ হোক">
+                    🌺 স্বপ্নগুলো পূরণ হোক
+                    <div class="wish-reaction">⭐</div>
+                </div>
+                <div class="wish-item interactive-wish" data-wish="সফলতা ছুঁয়ে যাক তোমার হাত">
+                    💫 সফলতা ছুঁয়ে যাক তোমার হাত
+                    <div class="wish-reaction">🏆</div>
+                </div>
+                <div class="wish-item interactive-wish" data-wish="রঙিন হোক তোমার প্রতিটি দিন">
+                    🌈 রঙিন হোক তোমার প্রতিটি দিন
+                    <div class="wish-reaction">🎨</div>
+                </div>
             </div>
             
+            <!-- Love Counter -->
+            <div class="love-counter">
+                <div class="counter-title">💖 Love Meter 💖</div>
+                <div class="love-bar">
+                    <div class="love-progress" id="loveProgress"></div>
+                </div>
+                <div class="love-text">Click to fill my heart with love! 💕</div>
+                <div class="love-count">Love Count: <span id="loveCount">0</span></div>
+            </div>
+            
+            <!-- Interactive Birthday Cake -->
+            <div class="cake-section">
+                <div class="cake-title">🎂 Make a Wish & Blow the Candles! 🎂</div>
+                <div class="birthday-cake" id="birthdayCake">
+                    <div class="cake-base">🎂</div>
+                    <div class="candle" data-candle="1">🕯️</div>
+                    <div class="candle" data-candle="2">🕯️</div>
+                    <div class="candle" data-candle="3">🕯️</div>
+                    <div class="candle" data-candle="4">🕯️</div>
+                    <div class="candle" data-candle="5">🕯️</div>
+                </div>
+                <div class="cake-instruction">Click each candle to blow it out! 🌬️</div>
+                <div class="wish-message" id="wishMessage" style="display: none;">
+                    ✨ Your wish has been sent to the stars! ✨
+                </div>
+            </div>
+            
+            <!-- Heart Animation Section -->
             <div class="heart-animation">
                 <div class="heart">💖</div>
                 <div class="heart">💕</div>
                 <div class="heart">💗</div>
             </div>
             
+            <!-- Love Notes -->
+            <div class="love-notes">
+                <div class="notes-title">💝 Sweet Notes For You 💝</div>
+                <div class="note" data-note="1">
+                    <div class="note-content">তুমি আমার সবচেয়ে প্রিয় মানুষ 💕</div>
+                </div>
+                <div class="note" data-note="2">
+                    <div class="note-content">তোমার হাসি আমার সব দুঃখ ভুলিয়ে দেয় 😊</div>
+                </div>
+                <div class="note" data-note="3">
+                    <div class="note-content">তোমার সাথে প্রতিটি মুহূর্ত স্পেশাল 🌟</div>
+                </div>
+                <div class="note" data-note="4">
+                    <div class="note-content">তুমি আছো বলেই আমার জীবন সুন্দর ✨</div>
+                </div>
+            </div>
+            
+            <!-- Signature -->
             <div class="signature">
-                With all my love 💝<br>
-                <em>From your special someone</em>
+                <div class="signature-text">With all my love 💝</div>
+                <div class="signature-name">From your special someone</div>
+                <div class="signature-date">September 30, 2025</div>
             </div>
         </div>
         
+        <!-- Floating Balloons -->
         <div class="balloons">
             <div class="balloon balloon1">🎈</div>
             <div class="balloon balloon2">🎈</div>
             <div class="balloon balloon3">🎈</div>
             <div class="balloon balloon4">🎈</div>
+            <div class="balloon balloon5">🎈</div>
+            <div class="balloon balloon6">🎈</div>
+        </div>
+        
+        <!-- Surprise Modal -->
+        <div class="surprise-modal" id="surpriseModal">
+            <div class="modal-content">
+                <span class="close-modal" id="closeModal">&times;</span>
+                <h2>🎉 SURPRISE! 🎉</h2>
+                <div class="surprise-text">
+                    <p>Borsha, তুমি জানো না তুমি কতটা স্পেশাল!</p>
+                    <p>তোমার জন্মদিনে আমার একটাই শুধু কামনা -</p>
+                    <p><strong>"তুমি সবসময় খুশি থাকো এবং হাসতে থাকো!"</strong></p>
+                    <div class="surprise-hearts">💖💕💗💖💕💗</div>
+                </div>
+            </div>
         </div>
     </div>
     
